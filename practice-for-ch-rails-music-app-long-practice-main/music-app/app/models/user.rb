@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+    validates :session_token, :email, presence: true, uniqueness: true
+    validates :password_digest, presence: true
 
     before_validation  :ensure_session_token
     attr_reader: password
